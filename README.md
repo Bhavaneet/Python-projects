@@ -9,3 +9,5 @@ Based on the length of password needed, the program generates a password.<br><br
 # Jokes <br>
 A simple webapp made using Flask and pyjokes for generating jokes.<br>
 You can view one joke or multiple jokes at the same time.<br><br>
+<img width="960" alt="Screenshot 2024-02-14 234518" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/264bea36-578d-46a7-8d44-bf5301329c75"> <br>
+<img width="960" alt="Screenshot 2024-02-14 234423" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/13c0b3b1-8abf-4933-8df6-b7b326f86819">
