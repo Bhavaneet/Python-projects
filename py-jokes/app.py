@@ -12,7 +12,7 @@ def home():
 @app.route("/multiplejokes")
 def jokes():
     jokes = pyjokes.get_jokes()
-    return f"<h2>{jokes}\n</h2>"
+    return f"<h2>{jokes}</h2>"
 
 if __name__ == "__main__":
     app.run(debug = True)
