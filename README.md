@@ -5,3 +5,7 @@ A simple game which you can play with the computer. <br><br>
 # Password Generator <br>
 Based on the length of password needed, the program generates a password.<br><br>
 <img width="261" alt="Screenshot 2024-01-27 092515" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/d71cedde-5293-4113-9055-a37cbf27f21d">
+<br><br><br>
+# Jokes <br>
+A simple webapp made using Flask and pyjokes for generating jokes.<br>
+You can view one joke or multiple jokes at the same time.<br><br>
