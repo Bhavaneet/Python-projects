@@ -11,3 +11,6 @@ A simple webapp made using Flask and pyjokes for generating jokes.<br>
 You can view one joke or multiple jokes at the same time.<br><br>
 <img width="560" alt="Screenshot 2024-02-14 234518" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/264bea36-578d-46a7-8d44-bf5301329c75"> <br>
 <img width="560" alt="Screenshot 2024-02-14 234423" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/13c0b3b1-8abf-4933-8df6-b7b326f86819">
+<br><br><br>
+# Loan Calculator <br>
+<img width="459" alt="Screenshot 2024-02-18 231933" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/1f506b9c-11fd-410d-b6ba-855bc3b7d6af">
