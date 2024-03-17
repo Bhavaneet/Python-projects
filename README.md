@@ -15,4 +15,3 @@ You can view one joke or multiple jokes at the same time.<br><br>
 # Loan Calculator <br>
 <img width="459" alt="Screenshot 2024-02-18 231933" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/1f506b9c-11fd-410d-b6ba-855bc3b7d6af">
 <br><br><br>
-# Sudoku solver
