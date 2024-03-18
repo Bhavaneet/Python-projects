@@ -17,6 +17,6 @@ You can view one joke or multiple jokes at the same time.<br><br>
 <br><br><br>
 
 # Sudoku Solver <br> 
-<img width="261" alt="Screenshot 2024-03-17 071722" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/8f25afc2-9074-4033-bf32-92bc7a6c9a9e"><br> The solution to the above sudoku is 
+<img width="261" alt="Screenshot 2024-03-17 071722" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/8f25afc2-9074-4033-bf32-92bc7a6c9a9e"><br> The solution to the above sudoku is <br>
 <img width="261" alt="Screenshot 2024-03-17 071704" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/7910e56a-67a7-43b2-b7ff-ea98f337705c">
 <br><br><br>
