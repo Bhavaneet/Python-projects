@@ -21,3 +21,5 @@ You can view one joke or multiple jokes at the same time.<br><br>
 <img width="261" alt="Screenshot 2024-03-17 071704" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/7910e56a-67a7-43b2-b7ff-ea98f337705c">
 <br><br><br>
 # Hangman <br>
+![Screenshot 2024-05-04 073558](https://github.com/Bhavaneet/Python-projects/assets/130878982/566abadb-744b-40ff-9ed3-26c31ff1fb7b)
+![Screenshot 2024-05-04 073627](https://github.com/Bhavaneet/Python-projects/assets/130878982/3632040d-9fc5-41a9-85ff-40bfcf34e70a)
