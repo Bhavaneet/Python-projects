@@ -18,12 +18,6 @@ class Notepad:
 	__file = None
 
 	def __init__(self,**kwargs):
-		# Set icon
-		try:
-				self.__root.wm_iconbitmap("Notepad.ico") 
-		except:
-				pass
-
 		# Set window size (the default is 300x300)
 		try:
 			self.__thisWidth = kwargs['width']
