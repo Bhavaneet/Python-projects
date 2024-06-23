@@ -25,3 +25,4 @@ You can view one joke or multiple jokes at the same time.<br><br>
 ![Screenshot 2024-05-04 073627](https://github.com/Bhavaneet/Python-projects/assets/130878982/3632040d-9fc5-41a9-85ff-40bfcf34e70a)
 <br><br><br>
 # Text Editor <br>
+<img width="560" height="300" alt="Screenshot 2024-02-14 234423" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/f4847d87-3d19-415b-a4cd-d8c2aedf93a7">
