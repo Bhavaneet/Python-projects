@@ -1,23 +1,19 @@
 import mysql.connector
 
-# Database connection
 con = mysql.connector.connect(
     host="localhost",
     user="root",
     password="password",
     database="emp"
 )
-
 cursor = con.cursor()
 
-# Function to check if an employee exists
 def check_employee(employee_id):
     sql = 'SELECT * FROM employees WHERE id=%s'
     cursor.execute(sql, (employee_id,))
     result = cursor.fetchone()
     return result is not None
 
-# Function to add an employee
 def add_employee():
     Id = input("Enter Employee Id: ")
     if check_employee(Id):
@@ -38,7 +34,6 @@ def add_employee():
         print(f"Error: {err}")
         con.rollback()
 
-# Function to remove an employee
 def remove_employee():
     Id = input("Enter Employee Id: ")
     if not check_employee(Id):
@@ -55,7 +50,6 @@ def remove_employee():
         print(f"Error: {err}")
         con.rollback()
 
-# Function to promote an employee
 def promote_employee():
     Id = input("Enter Employee's Id: ")
     if not check_employee(Id):
@@ -79,7 +73,6 @@ def promote_employee():
         print(f"Error: {e}")
         con.rollback()
 
-# Function to display all employees
 def display_employees():
     try:
         sql = 'SELECT * FROM employees'
@@ -95,7 +88,6 @@ def display_employees():
     except mysql.connector.Error as err:
         print(f"Error: {err}")
 
-# Function to display the menu
 def menu():
     while True:
         print("\nWelcome to Employee Management Record")
