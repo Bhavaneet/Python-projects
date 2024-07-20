@@ -1,94 +1,98 @@
 import mysql.connector
 
-con = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="password",
-    database="emp"
-)
-cursor = con.cursor()
+class EmployeeDatabase:
+    def __init__(self, host, user, password, database):
+        self.con = mysql.connector.connect(
+            host=host,
+            user=user,
+            password=password,
+            database=database
+        )
+        self.cursor = self.con.cursor()
 
-def check_employee(employee_id):
-    sql = 'SELECT * FROM employees WHERE id=%s'
-    cursor.execute(sql, (employee_id,))
-    result = cursor.fetchone()
-    return result is not None
+    def check_employee(self, employee_id):
+        sql = 'SELECT * FROM employees WHERE id=%s'
+        self.cursor.execute(sql, (employee_id,))
+        result = self.cursor.fetchone()
+        return result is not None
 
-def add_employee():
-    Id = input("Enter Employee Id: ")
-    if check_employee(Id):
-        print("Employee already exists. Please try again.")
-        return
-    
-    Name = input("Enter Employee Name: ")
-    Post = input("Enter Employee Post: ")
-    Salary = input("Enter Employee Salary: ")
+    def add_employee(self, Id, Name, Post, Salary):
+        if self.check_employee(Id):
+            print("Employee already exists. Please try again.")
+            return False
+        
+        sql = 'INSERT INTO employees (id, name, position, salary) VALUES (%s, %s, %s, %s)'
+        data = (Id, Name, Post, Salary)
+        try:
+            self.cursor.execute(sql, data)
+            self.con.commit()
+            print("Employee Added Successfully")
+            return True
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+            self.con.rollback()
+            return False
 
-    sql = 'INSERT INTO employees (id, name, position, salary) VALUES (%s, %s, %s, %s)'
-    data = (Id, Name, Post, Salary)
-    try:
-        cursor.execute(sql, data)
-        con.commit()
-        print("Employee Added Successfully")
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-        con.rollback()
+    def remove_employee(self, Id):
+        if not self.check_employee(Id):
+            print("Employee does not exist. Please try again.")
+            return False
+        
+        sql = 'DELETE FROM employees WHERE id=%s'
+        data = (Id,)
+        try:
+            self.cursor.execute(sql, data)
+            self.con.commit()
+            print("Employee Removed Successfully")
+            return True
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
+            self.con.rollback()
+            return False
 
-def remove_employee():
-    Id = input("Enter Employee Id: ")
-    if not check_employee(Id):
-        print("Employee does not exist. Please try again.")
-        return
-    
-    sql = 'DELETE FROM employees WHERE id=%s'
-    data = (Id,)
-    try:
-        cursor.execute(sql, data)
-        con.commit()
-        print("Employee Removed Successfully")
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-        con.rollback()
+    def promote_employee(self, Id, Amount):
+        if not self.check_employee(Id):
+            print("Employee does not exist. Please try again.")
+            return False
+        
+        try:
+            sql_select = 'SELECT salary FROM employees WHERE id=%s'
+            self.cursor.execute(sql_select, (Id,))
+            current_salary = self.cursor.fetchone()[0]
+            new_salary = int(current_salary) + int(Amount)
 
-def promote_employee():
-    Id = input("Enter Employee's Id: ")
-    if not check_employee(Id):
-        print("Employee does not exist. Please try again.")
-        return
-    
-    try:
-        Amount = (input("Enter increase in Salary: "))
+            sql_update = 'UPDATE employees SET salary=%s WHERE id=%s'
+            self.cursor.execute(sql_update, (new_salary, Id))
+            self.con.commit()
+            print("Employee Promoted Successfully")
+            return True
+        except (ValueError, mysql.connector.Error) as e:
+            print(f"Error: {e}")
+            self.con.rollback()
+            return False
 
-        sql_select = 'SELECT salary FROM employees WHERE id=%s'
-        cursor.execute(sql_select, (Id,))
-        current_salary = cursor.fetchone()[0]
-        new_salary = int(current_salary) + int(Amount)
+    def display_employees(self):
+        try:
+            sql = 'SELECT * FROM employees'
+            self.cursor.execute(sql)
+            employees = self.cursor.fetchall()
+            for employee in employees:
+                print("Employee Id : ", employee[0])
+                print("Employee Name : ", employee[1])
+                print("Employee Post : ", employee[2])
+                print("Employee Salary : ", employee[3])
+                print("------------------------------------")
 
-        sql_update = 'UPDATE employees SET salary=%s WHERE id=%s'
-        cursor.execute(sql_update, (new_salary, Id))
-        con.commit()
-        print("Employee Promoted Successfully")
+        except mysql.connector.Error as err:
+            print(f"Error: {err}")
 
-    except (ValueError, mysql.connector.Error) as e:
-        print(f"Error: {e}")
-        con.rollback()
+    def close_connection(self):
+        if self.con.is_connected():
+            self.cursor.close()
+            self.con.close()
+            print("Database connection closed.")
 
-def display_employees():
-    try:
-        sql = 'SELECT * FROM employees'
-        cursor.execute(sql)
-        employees = cursor.fetchall()
-        for employee in employees:
-            print("Employee Id : ", employee[0])
-            print("Employee Name : ", employee[1])
-            print("Employee Post : ", employee[2])
-            print("Employee Salary : ", employee[3])
-            print("------------------------------------")
-
-    except mysql.connector.Error as err:
-        print(f"Error: {err}")
-
-def menu():
+def menu(employee_db):
     while True:
         print("\nWelcome to Employee Management Record")
         print("Press:")
@@ -101,18 +105,30 @@ def menu():
         ch = input("Enter your Choice: ")
 
         if ch == '1':
-            add_employee()
+            Id = input("Enter Employee Id: ")
+            Name = input("Enter Employee Name: ")
+            Post = input("Enter Employee Post: ")
+            Salary = input("Enter Employee Salary: ")
+            employee_db.add_employee(Id, Name, Post, Salary)
         elif ch == '2':
-            remove_employee()
+            Id = input("Enter Employee Id: ")
+            employee_db.remove_employee(Id)
         elif ch == '3':
-            promote_employee()
+            Id = input("Enter Employee's Id: ")
+            Amount = input("Enter increase in Salary: ")
+            employee_db.promote_employee(Id, Amount)
         elif ch == '4':
-            display_employees()
+            employee_db.display_employees()
         elif ch == '5':
+            employee_db.close_connection()
             print("Exiting the program. Goodbye!")
             break
         else:
             print("Invalid Choice! Please try again.")
 
 if __name__ == "__main__":
-    menu()
+    try:
+        employee_db = EmployeeDatabase(host="localhost", user="root", password="password", database="emp")
+        menu(employee_db)
+    except mysql.connector.Error as e:
+        print(f"Database Error: {e}")
