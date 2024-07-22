@@ -1,3 +1,9 @@
+# Money Manager <br>
+<img width="459" src="https://github.com/user-attachments/assets/7c6d8f3d-c338-480f-9f69-e265e79166b8"><br>
+<img width="261" height="200" src="https://github.com/user-attachments/assets/dba7970f-37b0-4d1c-88d7-1e72fff16660">
+<img width="261" height="200" src="https://github.com/user-attachments/assets/b601ddcc-a94c-4085-bd51-cccf97eaed42">
+<br><br><br>
+
 # Tic Tac Toe <br>
 A simple game which you can play with the computer. <br><br>
 <img width="179" alt="Screenshot 2024-01-27 092755" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/ae354d2f-9f55-43b4-a398-abb903b92e4f">
@@ -11,8 +17,8 @@ Based on the length of password needed, the program generates a password.<br><br
 # Jokes <br>
 A simple webapp made using Flask and pyjokes for generating jokes.<br>
 You can view one joke or multiple jokes at the same time.<br><br>
-<img width="560" alt="Screenshot 2024-02-14 234518" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/264bea36-578d-46a7-8d44-bf5301329c75"> <br>
-<img width="560" alt="Screenshot 2024-02-14 234423" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/13c0b3b1-8abf-4933-8df6-b7b326f86819">
+<img width="460" alt="Screenshot 2024-02-14 234518" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/264bea36-578d-46a7-8d44-bf5301329c75"> <br>
+<img width="460" alt="Screenshot 2024-02-14 234423" src="https://github.com/Bhavaneet/Python-projects/assets/130878982/13c0b3b1-8abf-4933-8df6-b7b326f86819">
 <br><br><br>
 
 # Loan Calculator <br>
